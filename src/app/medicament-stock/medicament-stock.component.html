@@ -1,0 +1,58 @@
+
+<div class="w-full pdf-w-max border-2 rounded-2xl p-4">
+
+  <div  class="flex flex-col w-full" matSort (matSortChange)="tableSortEvent($event)" >
+    <div class="text-sm lg:text-md flex flex-row w-full order-row h-14 justify-center items-center content-center border-b pdf-w-max">
+      <div  class="flex  font-bold px-4 text-center justify-center items-center justify-items-center w-full" mat-sort-header="name">Nome</div>
+      <div   class="flex  font-bold px-4 text-center justify-center items-center justify-items-center w-full">Príncipio Ativo</div>
+      <div   class="flex  font-bold px-4 text-center justify-center items-center justify-items-center w-full">Fabricante</div>
+      <div   class="flex  font-bold px-4 text-center justify-center items-center justify-items-center w-full">Data de Validade</div>
+      <div   class="flex  font-bold px-4 text-center justify-center items-center justify-items-center w-full">Preço</div>
+      <div   class="flex  font-bold px-4 text-center justify-center items-center justify-items-center w-full">Forma farmaceutica</div>
+    </div>
+    <div class="w-full max-h-64 overflow-y-auto overflow-x-hidden scrollbar-thin flex flex-col  text-sm lg:text-md">
+      <div *ngFor="let item of medicaments">
+        <div *ngIf="item.id != selected.id" class="hover:cursor-pointer flex flex-row w-full min-h-12  text-gray-600 text-left text-xs order-row items-center justify-start content-center border-t " (click)="selectMedicament(item)">
+            <div class="flex justify-center items-center justify-items-center  px-4 w-full">
+              {{item.name}}
+            </div>
+            <div class="flex justify-center items-center justify-items-center  px-4 w-full">
+              {{item.activePrinciple}}
+            </div>
+            <div class="flex justify-center items-center justify-items-center  px-4  w-full">
+              {{item.producer}}
+            </div>
+            <div class="flex justify-center items-center justify-items-center  px-4  w-full">
+              {{item.validDate}}
+            </div>
+            <div class="flex justify-center items-center justify-items-center  px-4  w-full">
+              R$ {{item.price  | number:'1.2-2'}}
+            </div>
+            <div class="flex justify-center items-center justify-items-center  px-4  w-full">
+            {{item.form}}
+          </div>
+        </div>
+        <div *ngIf="item.id == selected.id" class=" flex flex-row w-full min-h-12 bg-gray-800  text-gray-100 text-left text-xs order-row items-center justify-start content-center border-t " >
+          <div class="flex justify-center items-center justify-items-center  px-4 w-full">
+            {{item.name}}
+          </div>
+          <div class="flex justify-center items-center justify-items-center  px-4 w-full">
+            {{item.activePrinciple}}
+          </div>
+          <div class="flex justify-center items-center justify-items-center  px-4  w-full">
+            {{item.producer}}
+          </div>
+          <div class="flex justify-center items-center justify-items-center  px-4  w-full">
+            {{item.validDate}}
+          </div>
+          <div class="flex justify-center items-center justify-items-center  px-4  w-full">
+            R$ {{item.price  | number:'1.2-2'}}
+          </div>
+          <div class="flex justify-center items-center justify-items-center  px-4  w-full">
+            {{item.form}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
