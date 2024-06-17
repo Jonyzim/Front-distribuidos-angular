@@ -73,9 +73,16 @@ export class PatientViewComponent implements OnInit{
     this.selectedPatient={...item};
   }
 
-  savePatient() {
-
-  }
 
   protected readonly sideBarItens = sideBarItens;
+
+  createPatient() {
+
+  }
+  deletePatient() {
+
+  }
+  updatePatient() {
+
+  }
 }

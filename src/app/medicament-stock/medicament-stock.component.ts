@@ -73,10 +73,18 @@ export class MedicamentStockComponent implements OnInit{
     this.selectedMedicament={...item};
   }
 
-  saveMedicament() {
+  updateMedicament() {
+
+  }
+
+  createMedicament() {
 
   }
 
   protected readonly sideBarItens = sideBarItens;
   selectedSideItem: number = 1;
+
+  deleteMedicament() {
+
+  }
 }

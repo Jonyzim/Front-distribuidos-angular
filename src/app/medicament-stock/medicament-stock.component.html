@@ -130,10 +130,19 @@
             [(ngModel)]="selectedMedicament.form"
             [placeholder]="'Informe a forma'">
         </div>
-        <div class="w-full flex justify-center">
-          <button class="mt-4  flex items-center bg-gray-800 hover:bg-gray-900 active:bg-gray-500 text-white font-semibold py-2 px-4 rounded-2xl"  type="button" [matTooltip]="'Save'" (click)="saveMedicament()">
-            <span class="text-sm">Salvar Medicamento</span>
+        <div class="w-full flex flex-col justify-center p-4 space-y-6 ">
+          <button class="flex items-center bg-gray-800 hover:bg-gray-900 active:bg-gray-500 text-white font-semibold py-1 px-4 rounded-2xl"  type="button" [matTooltip]="'Create'" (click)="createMedicament()">
+            <span class="text-sm">Criar Novo</span>
           </button>
+
+          <div class="w-full flex flex-row justify-center space-x-2">
+            <button class=" flex items-center border-gray-800 text-gray-800 border hover:bg-gray-100 active:bg-gray-200 font-semibold py-1 px-4 rounded-2xl"  type="button" [matTooltip]="'Update'" (click)="updateMedicament()">
+              <span class="text-sm">Atualizar</span>
+            </button>
+            <button class="  flex items-center border-red-500 text-red-500 border hover:bg-gray-100 active:bg-gray-200 font-semibold py-1 px-4 rounded-2xl"  type="button" [matTooltip]="'Delete'" (click)="deleteMedicament()">
+              <span class="text-sm">Deletar</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
