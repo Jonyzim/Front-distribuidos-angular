@@ -1,27 +1,45 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {Medicament} from "./medicament-stock.types";
-import {MatSort, MatSortHeader, Sort} from "@angular/material/sort";
+import {MatInput} from "@angular/material/input";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {DecimalPipe, NgForOf, NgIf} from "@angular/common";
+import {MatSort, MatSortHeader, Sort} from "@angular/material/sort";
+import {MatTooltip} from "@angular/material/tooltip";
+import {Medicament} from "../app.types";
+import {sideBarItens} from "../../constants/contants";
+import {RouterLink} from "@angular/router";
+
 
 @Component({
   selector: 'app-medicament-stock',
   standalone: true,
   imports: [
-    MatSort,
-    NgForOf,
-    MatSortHeader,
+    MatInput,
+    ReactiveFormsModule,
+    FormsModule,
     DecimalPipe,
-    NgIf
+    MatSort,
+    MatSortHeader,
+    NgForOf,
+    NgIf,
+    MatTooltip,
+    RouterLink
   ],
   templateUrl: './medicament-stock.component.html',
-  styleUrl: './medicament-stock.component.css'
 })
+
 export class MedicamentStockComponent implements OnInit{
+
   medicaments: Medicament[]= [];
-  selected:Medicament=new Medicament();
-  constructor(
-    private _changeDetectorRef: ChangeDetectorRef) {
+  selectedMedicament:Medicament=new Medicament();
+  constructor(private _changeDetectorRef:ChangeDetectorRef) {
   }
+  ngOnInit(): void {
+    for(let i=0;i<10;i++) this.addRandomMedicament();
+    this.selectedMedicament=this.medicaments[0];
+    this._changeDetectorRef.markForCheck();
+  }
+
+
   tableSortEvent(sort: Sort) {
     switch (sort.active){
       case "id":
@@ -47,16 +65,18 @@ export class MedicamentStockComponent implements OnInit{
     med.form="Comprimido";
     med.price=Math.floor(Math.random()*50);
     med.producer="Prod X";
-    med.validDate="30/06/2024";
+    med.validDate="2024-06-30";
     this.medicaments.push(med);
-  }
-  ngOnInit(): void {
-    for(let i=0;i<10;i++) this.addRandomMedicament();
-    this.selected=this.medicaments[0];
-    this._changeDetectorRef.markForCheck();
   }
 
   selectMedicament(item:Medicament) {
-    this.selected=item;
+    this.selectedMedicament={...item};
   }
+
+  saveMedicament() {
+
+  }
+
+  protected readonly sideBarItens = sideBarItens;
+  selectedSideItem: number = 1;
 }

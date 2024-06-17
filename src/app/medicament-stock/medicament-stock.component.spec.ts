@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MedicamentStockComponent } from './medicament-stock.component';
 
-describe('MedicamentStockComponent', () => {
+describe('HomeComponent', () => {
   let component: MedicamentStockComponent;
   let fixture: ComponentFixture<MedicamentStockComponent>;
 
@@ -11,7 +11,7 @@ describe('MedicamentStockComponent', () => {
       imports: [MedicamentStockComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(MedicamentStockComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
