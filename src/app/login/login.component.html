@@ -1,10 +1,38 @@
-<div class="absolute flex flex-row w-full h-full inset-0 bg-gray-200 space-x-2">
+<div class="absolute flex justify-start items-center flex-row w-full h-full inset-0 bg-gray-200 ">
 
-  <div class="flex flex-col w-2/5 h-full bg-gray-800">
+  <div class="flex flex-col w-2/5 h-full bg-gray-800  p-20 text-gray-50 ">
+    <span class="text-8xl">SisFarma</span>
+    <div class="mt-12"></div>
+    <div class="flex flex-col px-8 py-12 border-gray-600 border rounded-2xl">
 
+      <span class="text-xl font-bold">Login</span>
+      <div class="w-full flex flex-row justify-between items-center mt-4">
+        <span class="text-sm  text-gray-200 mr-4">CPF:</span>
+        <input
+          matInput
+          class="w-2/3 text-sm text-gray-900 text-left px-2 py-1 font-normal  border-gray-600 bg-gray-200 rounded-md"
+          [(ngModel)]="user.cpf"
+          [placeholder]="'Informe o Cpf'">
+      </div>
+      <div class="w-full flex flex-row justify-between items-center mt-4">
+        <span class="text-sm  text-gray-200 mr-4">Senha:</span>
+        <input
+          matInput
+          type="password"
+          class="w-2/3 text-sm text-gray-900 text-left px-2 py-1 font-normal  border-gray-600 bg-gray-200 rounded-md"
+          [(ngModel)]="user.password"
+          [placeholder]="'Informe a senha'">
+      </div>
+      <div class="w-full flex flex-row justify-end">
+
+        <button class="w-1/2 mt-8 mb-2 flex flex-row justify-center items-center hover:bg-gray-700 bg-gray-900 active:bg-gray-500 text-white font-semibold py-2 px-4 rounded-2xl"  type="button" [routerLink]="['medicamentos']" [matTooltip]="'Login'" (click)="startLogin()">
+          <span class="text-lg">Entrar</span>
+        </button>
+      </div>
+    </div>
   </div>
-  <div class="w-3/5 h-full bg-gray-200">
+  <div class="w-3/5 h-full bg-gray-200 p-4 flex flex-row justify-center items-center">
 
-    <img src="assets/healthcare.png" class="w-full" alt="health care"/>
+    <img src="assets/healthcare.png" class="h-full" alt="health care"/>
   </div>
 </div>

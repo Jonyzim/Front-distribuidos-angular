@@ -11,7 +11,7 @@ import {Patient} from "../app.types";
 
 
 @Component({
-  selector: 'app-medicament-stock',
+  selector: 'app-tela-farmaceutico',
   standalone: true,
   imports: [
     MatInput,
