@@ -4,7 +4,7 @@ import {FormsModule} from "@angular/forms";
 import {MatInput} from "@angular/material/input";
 import {User} from "../app.types";
 import {MatTooltip} from "@angular/material/tooltip";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-logins',
@@ -16,13 +16,18 @@ import {RouterLink} from "@angular/router";
     MatTooltip,
     RouterLink
   ],
+
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
 
   user: User = new User();
 
+  constructor(
+              private router:Router) {}
+
   startLogin() {
-    //TODO Logica de login
+    //TODO Enviar login pro back
+    this.router.navigate(['farmaceutico']);
   }
 }
